@@ -43,12 +43,6 @@ export async function POST(req:NextRequest){
         // })
         return NextResponse.json({token:token});
     }
-    // console.log("I logged");
-    // res.status(411).json({
-    //     message: "Error while Logging in",
-    // })
-    // return NextResponse.
-    // return NextResponse.json({message:"Error while Logging in"});
-    // return NextResponse.
+
     return NextResponse.json({message: "Error while Logging in"},{status:411});
 }
