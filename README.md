@@ -34,3 +34,34 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Run Project on Docker
+
+To run this project in Docker
+
+Clone the Repository
+
+Install Docker in you device and Run the Following commands
+
+```bash
+docker compose up
+```
+This will run conatiners for the Project
+
+Very Very Important
+
+Now in new terminal run the Following Command
+
+```bash
+docker exec -it nextapp npx prisma migrate dev --name init
+```
+
+After this command you are good to go with the Project
+
+This Project is Bind Mounted so change in project will be reflected directly
+
+So changes can be seen instantly
+
+Good To Go
+
+All the Best !!!!

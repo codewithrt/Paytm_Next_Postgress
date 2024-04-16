@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+   neondatabase:
+       image: "postgres:alpine3.19"
+       container_name: neondatabase
+       ports:
+          - "5432:5432"
+       environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: cms
+       volumes:
+          - "neondatabase_data:/data/db"
+   nextapp:
+       build: .
+       container_name: "nextapp"
+       depends_on:
+          - neondatabase
+      #  entrypoint: ["npx","prisma","migrate","dev","--name","init"]
+       ports:
+          - "3000:3000"
+       environment:
+         DATABASE_URL: "postgresql://postgres:postgres@neondatabase:5432/cms?schema=public"
+       volumes:
+          - .:/app
+          - /app/node_modules
+volumes:
+    neondatabase_data:
