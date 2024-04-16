@@ -1,5 +1,6 @@
 // import Formcomp from "../components/SigninComp/Formcomp";
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 
 const Formcomp = dynamic(() => import('../components/SigninComp/Formcomp'), { ssr: false })
 const Signin = () => {
@@ -16,7 +17,9 @@ const Signin = () => {
                             Enter your Credentials to Access your <br />
                             account
                         </div>
+                        <Suspense fallback={<div>Loading ..</div>}>
                         <Formcomp/>
+                        </Suspense>
                     </div>
                 </div>
             </div>

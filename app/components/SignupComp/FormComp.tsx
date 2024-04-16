@@ -1,4 +1,5 @@
 "use client"
+
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import axios from "axios"
@@ -6,12 +7,18 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { IsLogAtom } from "../atoms/atom";
 import { toast } from "react-custom-alert";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const Formcomp = ()=>{
     const { register, handleSubmit } = useForm();
     const setUser = useSetRecoilState(IsLogAtom);
-    // const value = useRecoilValue(IsLogAtom)
+    const value = useRecoilValue(IsLogAtom)
     const router = useRouter()
+    useEffect(()=>{
+         if(value !== null||undefined){
+            router.push("http://localhost:3000/dashboard")
+         }
+    },[value])
    
     const onsubmit = async (e: any) => {
 

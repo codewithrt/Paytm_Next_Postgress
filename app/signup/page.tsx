@@ -1,4 +1,8 @@
-import Formcomp from "../components/SignupComp/FormComp";
+// import Formcomp from "../components/SignupComp/FormComp";
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+
+const Formcomp = dynamic(() => import('../components/SignupComp/FormComp'), { ssr: false })
 
 const Signup = () => {
    
@@ -14,7 +18,9 @@ const Signup = () => {
                             Enter your information to create an <br />
                             account
                         </div>
+                        <Suspense fallback={<div>Loading ..</div>}>
                        <Formcomp/>
+                       </Suspense>
                     </div>
                 </div>
             </div>

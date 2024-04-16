@@ -6,6 +6,7 @@ import { IsLogAtom } from "../atoms/atom";
 import axios from "axios";
 import { toast } from "react-custom-alert";
 import Link from "next/link";
+import { useEffect } from "react";
 
 
 const Formcomp = () => {
@@ -13,9 +14,12 @@ const Formcomp = () => {
     const setUser = useSetRecoilState(IsLogAtom);
     const value = useRecoilValue(IsLogAtom);
     const router = useRouter()
-    // if(value != null||undefined){
-    //     router.push("http://localhost:3000/dashboard")
-    // }
+    
+    useEffect(()=>{
+         if(value !== null||undefined){
+            router.push("http://localhost:3000/dashboard")
+         }
+    },[value])
     
     
     const onsubmit = async (e: any) => {
