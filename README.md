@@ -46,7 +46,7 @@ Install Docker in you device and Run the Following commands
 ```bash
 docker compose up
 ```
-This will run conatiners for the Project
+This will run container for the Project
 
 Very Very Important
 
